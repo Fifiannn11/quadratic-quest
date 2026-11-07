@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10142b">
+<title>Quadratic Quest — Digital Learning Escape Room</title>
+<style>
+:root{--bg:#0b1022;--card:#151d39;--card2:#1c2749;--line:#334064;--txt:#f4f6ff;--muted:#aeb8d6;--cyan:#5ce1ef;--violet:#a88aff;--green:#69e5b4;--gold:#ffd77a;--red:#ff8297}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#29245c 0,transparent 35%),var(--bg);color:var(--txt);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer}.shell{max-width:1040px;margin:auto;padding:16px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 18px}.brand{font-weight:900;letter-spacing:.7px}.brand span{color:var(--cyan)}.top small{color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:30px;font-size:11px}
+.card{background:linear-gradient(145deg,#1b2546,#121a34);border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:0 14px 35px #0003;margin-bottom:14px}.hero{overflow:hidden;position:relative;padding:clamp(22px,5vw,42px)}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:850;color:var(--cyan);text-transform:uppercase}.hero h1{font-size:clamp(34px,8vw,62px);line-height:1.02;margin:13px 0}.hero h1 span{color:var(--violet)}.hero p,.muted{color:var(--muted)}.orbit{font-size:clamp(50px,12vw,90px);text-align:center;color:var(--cyan);text-shadow:0 0 30px #5ce1ef66;margin:12px 0}
+.btn{border:0;border-radius:12px;padding:12px 17px;background:linear-gradient(100deg,#9878f5,#638bff);color:white;font-weight:800}.btn.alt{background:#273456;border:1px solid var(--line)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}.btn:disabled{opacity:.4}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.pill{border:1px solid var(--line);background:#111a34;border-radius:30px;padding:7px 11px;color:var(--muted);font-size:12px}.pill b{color:white}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.room{background:#121a34;border:1px solid var(--line);border-radius:17px;padding:16px}.room .num{font-size:11px;color:var(--cyan);font-weight:850;letter-spacing:1.2px}.room h3{margin:6px 0}.room p{font-size:13px;color:var(--muted);min-height:40px}.room .status{font-size:11px;color:var(--gold)}
+.hidden{display:none!important}.bar{height:8px;background:#2a3556;border-radius:20px;overflow:hidden;margin:8px 0 15px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan));transition:width .25s}
+.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:#101831;border:1px solid var(--line);border-radius:12px;padding:8px 11px;color:var(--muted);font-size:12px}.stat b{color:white}
+.lesson{background:#101831;border:1px solid var(--line);border-radius:14px;padding:14px;margin:14px 0}.formula{font:20px Georgia,serif;text-align:center;color:#ded8ff;background:#0b132b;border:1px solid #303b63;border-radius:12px;padding:12px;margin:12px 0}.qtitle{font-size:18px;font-weight:800;margin:15px 0}.options{display:grid;gap:9px}.option{text-align:left;width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#101831;color:var(--txt)}.option:disabled{cursor:default;opacity:1}.option.good{border-color:var(--green);background:#12372f}.option.bad{border-color:var(--red);background:#3b2130}
+.feedback{border-radius:12px;padding:12px;background:#101831;border:1px solid var(--line);margin-top:12px}.feedback.good{border-color:#3b9b78}.feedback.bad{border-color:#a84c64}.feedback strong{color:var(--green)}.feedback.bad strong{color:#ffb4c0}
+label{display:block;color:var(--muted);font-size:13px;margin:10px 0 4px}input[type=range]{width:100%;accent-color:var(--violet)}.sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.graph{background:#0b132b;border:1px solid var(--line);border-radius:15px;padding:8px;margin-top:12px}canvas{display:block;width:100%;height:250px}.small{font-size:12px;color:var(--muted)}.footer{text-align:center;color:#7885a9;font-size:11px;padding:18px 0 10px}
+@media(max-width:620px){.shell{padding:12px}.grid{grid-template-columns:1fr}.card{padding:16px}.sliders{grid-template-columns:1fr}.top small{max-width:145px;text-align:center}.room p{min-height:0}}
+@media print{body{background:#fff;color:#111}.shell>*:not(#certificate){display:none!important}#certificate{display:block!important;background:#fff!important;color:#111!important;border:3px double #333!important;box-shadow:none!important;margin:0!important}#certificate .muted,#certificate .small{color:#333!important}#certificate .lesson{background:#fff!important;color:#111!important;border:0!important}#certificate .eyebrow{color:#333!important}#certificate h2{color:#111!important}#certificate .actions{display:none!important}}
+</style>
+</head>
+<body><div class="shell">
+<header class="top"><div class="brand">◈ QUADRATIC <span>QUEST</span></div><small>MEDIA DIGITAL · MATEMATIKA KELAS X</small></header>
+
+<section id="home" class="card hero">
+ <div class="eyebrow">The Escape Room of Parabola</div><div class="orbit">⌁ ∩ ⌁</div>
+ <h1>Unlock the Mystery.<br><span>Master the Quadratic.</span></h1>
+ <p>Jelajahi laboratorium matematika, pelajari konsep fungsi kuadrat, pecahkan tantangan, dan kumpulkan empat kode untuk membuka ruang terakhir.</p>
+ <div class="pills"><div class="pill">🎯 <b>4 ruang misi</b></div><div class="pill">🧩 <b>12 tantangan</b></div><div class="pill">📈 <b>Simulasi grafik</b></div></div>
+ <div class="actions"><button class="btn" onclick="go('dashboard')">MULAI PETUALANGAN →</button><button class="btn alt" onclick="go('guide')">Cara bermain</button></div>
+</section>
+
+<section id="guide" class="card hidden"><div class="eyebrow">Player guide</div><h2>Petunjuk permainan</h2>
+ <ol class="muted"><li>Masuk ke dashboard dan pilih ruang misi.</li><li>Baca ringkasan materi pada setiap ruang.</li><li>Jawab tiga tantangan pada setiap misi.</li><li>Baca umpan balik dan pembahasan setelah menjawab.</li><li>Selesaikan empat misi untuk membuka evaluasi akhir.</li><li>Gunakan laboratorium grafik untuk bereksplorasi dengan koefisien a, b, dan c.</li></ol>
+ <p class="small">Progres disimpan di browser perangkat ini. Gunakan tombol Atur Ulang Progres jika ingin mengulang dari awal.</p><button class="btn" onclick="go('home')">Kembali</button>
+</section>
+
+<section id="dashboard" class="hidden">
+ <div class="card"><div class="eyebrow">Mission control</div><h2>Selamat datang, Math Explorer!</h2><p class="muted">Empat ruang laboratorium menunggu untuk dibuka. Selesaikan seluruh tantangan untuk memperoleh akses final.</p>
+ <div class="stats"><div class="stat">⭐ Skor <b id="score">0</b></div><div class="stat">🔐 Misi <b id="done">0/4</b></div><div class="stat">📝 Soal <b id="answered">0/12</b></div></div>
+ <p class="small">Progres petualangan</p><div class="bar"><i id="progress"></i></div>
+ <div class="actions"><button class="btn alt" onclick="go('simulator')">📈 Laboratorium Grafik</button><button class="btn alt" onclick="go('teacher')">🎓 Teacher Corner</button><button class="btn alt" onclick="go('about')">Tentang Produk</button><button class="btn ghost" onclick="resetProgress()">Atur ulang progres</button></div></div>
+ <div class="grid" id="rooms"></div>
+ <div class="card"><div class="eyebrow">Final access</div><h3>Ruang Evaluasi Akhir</h3><p class="muted">Selesaikan seluruh empat misi untuk membuka evaluasi akhir.</p><button id="finalOpen" class="btn" onclick="go('final')" disabled>Belum terbuka</button></div>
+</section>
+
+<section id="mission" class="card hidden">
+ <div class="eyebrow" id="mnum">MISSION 01</div><h2 id="mtitle"></h2><p class="muted" id="mdesc"></p>
+ <div class="lesson"><b>Ringkasan materi</b><div id="lessonText" class="muted"></div><div class="formula" id="formula"></div></div>
+ <div class="stats"><div class="stat">Tantangan <b id="qcount">1/3</b></div><div class="stat">Poin misi <b id="mscore">0</b></div></div>
+ <div class="qtitle" id="question"></div><div class="options" id="options"></div><div id="feedback" class="feedback hidden" aria-live="polite"></div>
+ <div class="actions"><button class="btn alt" onclick="go('dashboard')">← Dashboard</button><button id="continue" class="btn hidden" onclick="nextQuestion()">Lanjut →</button></div>
+</section>
+
+<section id="simulator" class="card hidden">
+ <div class="eyebrow">Interactive laboratory</div><h2>Parabola Simulator</h2><p class="muted">Geser koefisien untuk melihat bagaimana persamaan memengaruhi bentuk grafik. Pastikan a tidak sama dengan nol.</p>
+ <div class="sliders"><div><label>Koefisien a: <b id="av">1</b></label><input id="a" type="range" min="-3" max="3" step=".5" value="1"></div><div><label>Koefisien b: <b id="bv">-4</b></label><input id="b" type="range" min="-6" max="6" step="1" value="-4"></div><div><label>Koefisien c: <b id="cv">3</b></label><input id="c" type="range" min="-6" max="6" step="1" value="3"></div></div>
+ <div class="formula" id="equation"></div><div class="graph"><canvas id="plot" width="720" height="420"></canvas></div><div class="feedback" id="insight"></div>
+ <div class="actions"><button class="btn alt" onclick="resetGraph()">Atur ulang grafik</button><button class="btn" onclick="go('dashboard')">Kembali</button></div>
+</section>
+
+<section id="final" class="card hidden"><div class="eyebrow">Final challenge</div><h2>Unlock the Parabola</h2><p class="muted">Selesaikan evaluasi akhir untuk melihat ringkasan capaian permainanmu.</p>
+ <div class="lesson"><b>Kasus lintasan bola</b><p class="muted">Ketinggian bola dinyatakan oleh h(t) = −t² + 6t + 7, dengan t dalam detik dan h dalam meter. Abaikan hambatan udara.</p></div>
+ <div class="qtitle" id="fq"></div><div class="options" id="fopts"></div><div id="ffb" class="feedback hidden"></div>
+ <div class="actions"><button class="btn alt" onclick="go('dashboard')">Dashboard</button><button id="fnext" class="btn hidden" onclick="finalNext()">Lanjut →</button></div>
+ <div id="result" class="lesson hidden"></div>
+ <div id="certificateAction" class="actions hidden"><button class="btn" onclick="go('certificate')">🎓 Buat sertifikat penyelesaian</button></div>
+</section>
+
+<section id="teacher" class="card hidden">
+ <div class="eyebrow">Teacher corner</div><h2>Panduan Penggunaan untuk Guru</h2>
+ <p class="muted">Bagian ini membantu guru mempersiapkan pembelajaran fungsi kuadrat menggunakan Quadratic Quest.</p>
+ <div class="lesson"><b>Tujuan pembelajaran</b>
+  <ol class="muted">
+   <li>Siswa mampu mengidentifikasi bentuk umum dan koefisien fungsi kuadrat.</li>
+   <li>Siswa mampu menentukan akar-akar persamaan kuadrat melalui pemfaktoran sederhana.</li>
+   <li>Siswa mampu menentukan titik puncak dan sumbu simetri parabola.</li>
+   <li>Siswa mampu menginterpretasikan arah buka dan karakteristik grafik fungsi kuadrat.</li>
+   <li>Siswa mampu menggunakan representasi grafik untuk menjelaskan hubungan koefisien dengan bentuk parabola.</li>
+  </ol>
+ </div>
+ <div class="lesson"><b>Saran alur pembelajaran (2 × 45 menit)</b>
+  <ol class="muted">
+   <li>Orientasi dan apersepsi: 10 menit.</li>
+   <li>Eksplorasi ringkasan materi: 15 menit.</li>
+   <li>Permainan empat misi secara individu atau berkelompok: 35 menit.</li>
+   <li>Eksplorasi laboratorium grafik dan diskusi: 15 menit.</li>
+   <li>Refleksi serta evaluasi: 15 menit.</li>
+  </ol>
+ </div>
+ <div class="lesson"><b>Peran guru</b><p class="muted">Guru menyampaikan tujuan pembelajaran, memfasilitasi diskusi, mengamati strategi siswa, dan memberikan klarifikasi konsep. Skor permainan sebaiknya dipakai sebagai umpan balik formatif, bukan satu-satunya dasar penilaian.</p></div>
+ <div class="lesson"><b>Catatan teknis</b><p class="muted">Gunakan browser modern dan layar yang nyaman. Untuk pembelajaran kelas, guru dapat menampilkan website melalui proyektor atau meminta siswa mengaksesnya pada perangkat masing-masing. Ketersediaan perangkat dan internet perlu disesuaikan dengan kondisi sekolah.</p></div>
+ <button class="btn" onclick="go('dashboard')">Kembali ke dashboard</button>
+</section>
+
+<section id="about" class="card hidden">
+ <div class="eyebrow">About the project</div><h2>Tentang Quadratic Quest</h2>
+ <p class="muted">Quadratic Quest merupakan prototipe media pembelajaran matematika digital berbasis permainan dengan konsep escape room. Media ini dirancang untuk mendukung eksplorasi materi fungsi kuadrat kelas X melalui misi bertahap, umpan balik, dan simulasi grafik.</p>
+ <div class="lesson"><b>Informasi produk</b>
+  <p class="muted">Nama produk: Quadratic Quest<br>Materi: Fungsi kuadrat<br>Sasaran: SMA/MA kelas X<br>Format: Website HTML responsif<br>Fitur: Misi interaktif, latihan, umpan balik, skor, simulasi grafik, dan evaluasi akhir.</p>
+ </div>
+ <div class="lesson"><b>Identitas pengembang</b>
+  <p class="muted">Nama pengembang: <b>Abdul Wafidinul Islam</b><br>Program studi: Tadris Matematika<br>Institusi: Institut Ahmad Dahlan Probolinggo</p>
+  <p class="small">Identitas ini dapat disesuaikan apabila produk dikerjakan secara berkelompok atau institusi meminta format lain.</p>
+ </div>
+ <div class="lesson"><b>Pengembangan dan penelitian</b><p class="muted">Produk ini dapat dikaji lebih lanjut melalui validasi ahli materi dan media, uji kepraktisan oleh guru dan siswa, serta pengukuran hasil belajar atau kemampuan pemahaman konsep. Klaim efektivitas belum dapat dibuat sebelum dilakukan penelitian.</p></div>
+ <button class="btn" onclick="go('dashboard')">Kembali ke dashboard</button>
+</section>
+
+<section id="certificate" class="card hidden">
+ <div class="eyebrow">Achievement unlocked</div><h2>Sertifikat Penyelesaian</h2>
+ <p class="muted">Masukkan nama peserta untuk membuat sertifikat penyelesaian permainan. Sertifikat ini merupakan bukti partisipasi dalam prototipe, bukan sertifikat kompetensi resmi.</p>
+ <label for="studentName">Nama peserta</label><input id="studentName" maxlength="60" placeholder="Tulis nama lengkap" style="width:100%;padding:12px;border-radius:10px;background:#101831;border:1px solid #334064;color:#fff">
+ <div id="certPreview" class="lesson" style="text-align:center;padding:24px">
+  <div class="eyebrow">Quadratic Quest</div><h2 style="color:#5ce1ef">CERTIFICATE OF COMPLETION</h2>
+  <p class="muted">Diberikan kepada</p><h2 id="certName">Nama Peserta</h2>
+  <p class="muted">Atas partisipasi dan penyelesaian empat misi pembelajaran fungsi kuadrat.</p>
+  <p><b id="certScore">Skor permainan: 0</b></p>
+  <p class="small">Quadratic Quest · Digital Mathematics Learning Experience</p>
+ </div>
+ <div class="actions"><button class="btn" onclick="window.print()">Cetak / Simpan PDF</button><button class="btn alt" onclick="go('dashboard')">Kembali</button></div>
+</section>
+
+<div class="footer">QUADRATIC QUEST · Belajar · Bereksplorasi · Menyelesaikan Misteri<br>Prototipe media pembelajaran digital — versi pengembangan 2.0</div>
+</div>
+<script>
+const data=[
+ {title:"The Secret of Quadratic",desc:"Kenali bentuk umum dan unsur fungsi kuadrat.",lesson:"Fungsi kuadrat adalah fungsi polinomial berderajat dua. Bentuk umumnya f(x) = ax² + bx + c, dengan a ≠ 0. Nilai a, b, dan c disebut koefisien dan konstanta.",formula:"f(x) = ax² + bx + c, a ≠ 0",qs:[
+ ["Pada f(x) = 3x² − 2x + 5, nilai a, b, c adalah ...",["3, −2, 5","3, 2, 5","−3, 2, 5","3, −5, 2"],0,"Koefisien x² adalah 3, koefisien x adalah −2, dan konstanta adalah 5."],
+ ["Manakah yang merupakan fungsi kuadrat?",["f(x)=2x+1","f(x)=x³−2","f(x)=−x²+4x","f(x)=7"],2,"Fungsi kuadrat memiliki pangkat tertinggi variabel x sebesar dua dan koefisien x² tidak nol."],
+ ["Jika f(x)=−4x²+7, nilai b adalah ...",["−4","0","7","4"],1,"Tidak ada suku x, sehingga koefisien b bernilai 0."]
+ ]},
+ {title:"The Root Hunter",desc:"Temukan akar-akar persamaan kuadrat.",lesson:"Akar persamaan kuadrat adalah nilai x yang membuat f(x)=0. Akar dapat dicari dengan pemfaktoran, melengkapkan kuadrat, atau rumus kuadrat.",formula:"ax² + bx + c = 0",qs:[
+ ["Akar-akar x²−5x+6=0 adalah ...",["1 dan 6","2 dan 3","−2 dan −3","−1 dan −6"],1,"x²−5x+6=(x−2)(x−3), sehingga akarnya 2 dan 3."],
+ ["Persamaan x²−9=0 memiliki akar ...",["0 dan 9","−9 dan 1","−3 dan 3","3 dan 9"],2,"x²−9=(x−3)(x+3), sehingga x=3 atau x=−3."],
+ ["Jika (x−4)(x+1)=0, akar-akarnya ...",["4 dan −1","−4 dan 1","4 dan 1","−4 dan −1"],0,"Sifat hasil kali nol memberi x−4=0 atau x+1=0, sehingga x=4 dan x=−1."]
+ ]},
+ {title:"The Parabola Architect",desc:"Temukan titik puncak dan sumbu simetri.",lesson:"Titik puncak parabola adalah titik maksimum atau minimum. Koordinat x titik puncak adalah xp=−b/(2a), sedangkan yp=f(xp). Sumbu simetrinya x=xp.",formula:"xₚ = −b/(2a),   yₚ = f(xₚ)",qs:[
+ ["Titik puncak f(x)=x²−4x+3 adalah ...",["(2, −1)","(−2, −1)","(2, 1)","(−2, 1)"],0,"xp=−(−4)/(2×1)=2 dan f(2)=−1. Jadi titik puncaknya (2,−1)."],
+ ["Sumbu simetri f(x)=2x²+8x+1 adalah ...",["x=2","x=−2","x=−4","x=4"],1,"xp=−8/(2×2)=−2, sehingga sumbu simetrinya x=−2."],
+ ["Jika titik puncak berada di (3,−5), nilai minimum fungsi adalah ...",["3","−3","5","−5"],3,"Karena titik puncak merupakan titik minimum untuk parabola yang terbuka ke atas, nilai minimumnya adalah ordinat −5."]
+ ]},
+ {title:"The Final Graph Mystery",desc:"Hubungkan persamaan, akar, dan grafik parabola.",lesson:"Tanda koefisien a menentukan arah buka parabola. Titik potong sumbu-Y adalah (0,c). Akar-akar merupakan titik potong grafik dengan sumbu-X, jika akar real ada.",formula:"a > 0: terbuka ke atas · a < 0: terbuka ke bawah",qs:[
+ ["Grafik f(x)=−x²+4x−3 terbuka ke ...",["Atas","Bawah","Kanan","Kiri"],1,"Koefisien a=−1, sehingga parabola terbuka ke bawah."],
+ ["Titik potong sumbu-Y f(x)=2x²−3x+5 adalah ...",["(5,0)","(0,−3)","(0,5)","(2,0)"],2,"Titik potong sumbu-Y diperoleh saat x=0, sehingga y=c=5."],
+ ["Diskriminan D=b²−4ac pada x²−4x+4=0 adalah ...",["0","4","8","16"],0,"D=(−4)²−4(1)(4)=16−16=0. Persamaan memiliki satu akar real kembar."]
+ ]}
+];
+let state=load(),mi=0,qi=0,locked=false,finalIndex=0,finalScore=0;
+function fresh(){return {score:0,answers:{},completed:[],finalDone:false}}
+function load(){try{return JSON.parse(localStorage.getItem('qq_progress'))||fresh()}catch(e){return fresh()}}
+function save(){try{localStorage.setItem('qq_progress',JSON.stringify(state))}catch(e){}}
+function go(id){document.querySelectorAll('body section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='dashboard')renderDashboard();if(id==='simulator')draw();if(id==='final')renderFinal()}
+function renderDashboard(){document.getElementById('score').textContent=state.score;document.getElementById('done').textContent=state.completed.length+'/4';document.getElementById('answered').textContent=Object.keys(state.answers).length+'/12';document.getElementById('progress').style.width=(Object.keys(state.answers).length/12*100)+'%';document.getElementById('rooms').innerHTML=data.map((m,i)=>{let n=Object.keys(state.answers).filter(k=>k.startsWith(i+'-')).length;return `<div class="room"><div class="num">ROOM 0${i+1}</div><h3>${m.title}</h3><p>${m.desc}</p><div class="status">${n===3?'✓ Misi selesai':n+'/3 tantangan selesai'}</div><div class="actions"><button class="btn alt" onclick="startMission(${i})">${n===3?'Ulangi materi':'Masuk misi →'}</button></div></div>`}).join('');let f=document.getElementById('finalOpen');f.disabled=state.completed.length!==4;f.textContent=state.completed.length===4?'Buka evaluasi akhir →':'Selesaikan 4 misi dahulu'}
+function startMission(i){mi=i;qi=0;while(qi<3&&state.answers[mi+'-'+qi])qi++;if(qi===3)qi=0;renderMission();go('mission')}
+function renderMission(){let m=data[mi],q=m.qs[qi];locked=false;document.getElementById('mnum').textContent='MISSION 0'+(mi+1)+' · CHALLENGE';document.getElementById('mtitle').textContent=m.title;document.getElementById('mdesc').textContent=m.desc;document.getElementById('lessonText').textContent=m.lesson;document.getElementById('formula').textContent=m.formula;document.getElementById('qcount').textContent=(qi+1)+'/3';document.getElementById('mscore').textContent=m.qs.reduce((s,x,j)=>s+(state.answers[mi+'-'+j]?.points||0),0);document.getElementById('question').textContent=q[0];document.getElementById('feedback').className='feedback hidden';document.getElementById('continue').classList.add('hidden');document.getElementById('options').innerHTML=q[1].map((o,j)=>`<button class="option" onclick="choose(${j})">${String.fromCharCode(65+j)}. ${o}</button>`).join('');}
+function choose(j){if(locked)return;locked=true;let q=data[mi].qs[qi],correct=j===q[2],key=mi+'-'+qi,pts=correct?100:0;if(!state.answers[key]){state.answers[key]={correct,points:pts};state.score+=pts;}else if(state.answers[key].correct){pts=100;correct=true;}else if(correct){state.answers[key]={correct:true,points:100};state.score+=100;}if(Object.keys(state.answers).filter(k=>k.startsWith(mi+'-')).length===3&&!state.completed.includes(mi))state.completed.push(mi);save();let opts=[...document.querySelectorAll('#options .option')];opts.forEach((b,i)=>{b.disabled=true;if(i===q[2])b.classList.add('good');else if(i===j)b.classList.add('bad')});let fb=document.getElementById('feedback');fb.className='feedback '+(correct?'good':'bad');fb.innerHTML=(correct?'<strong>Jawaban benar! +100 poin.</strong>':'<strong>Jawaban belum tepat.</strong>')+'<br>'+q[3];let next=document.getElementById('continue');next.classList.remove('hidden');next.textContent=qi===2?'Selesai misi →':'Tantangan berikutnya →';}
+function nextQuestion(){if(qi<2){qi++;renderMission()}else{renderDashboard();go('dashboard')}}
+function resetProgress(){if(confirm('Hapus seluruh progres dan mulai dari awal?')){state=fresh();save();renderDashboard()}}
+function draw(){let a=+document.getElementById('a').value,b=+document.getElementById('b').value,c=+document.getElementById('c').value;document.getElementById('av').textContent=a;document.getElementById('bv').textContent=b;document.getElementById('cv').textContent=c;let s=(v)=>v<0?' − ':' + ';document.getElementById('equation').textContent='f(x) = '+a+'x²'+s(b)+Math.abs(b)+'x'+s(c)+Math.abs(c);let cv=document.getElementById('plot'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;ctx.clearRect(0,0,W,H);if(a===0){document.getElementById('insight').innerHTML='<b>Nilai a tidak boleh 0.</b> Fungsi kuadrat harus memiliki koefisien x² yang tidak nol. Geser slider a ke nilai lain.';return;}let xp=-b/(2*a),yp=a*xp*xp+b*xp+c;document.getElementById('insight').innerHTML='Arah buka: <b>'+(a>0?'ke atas':'ke bawah')+'</b><br>Titik puncak: <b>('+xp.toFixed(2)+', '+yp.toFixed(2)+')</b><br>Sumbu simetri: <b>x = '+xp.toFixed(2)+'</b>';let xmin=-6,xmax=6,ymin=-10,ymax=12,X=x=>(x-xmin)/(xmax-xmin)*W,Y=y=>H-(y-ymin)/(ymax-ymin)*H;ctx.strokeStyle='#303c60';ctx.lineWidth=1;for(let x=-6;x<=6;x++){ctx.beginPath();ctx.moveTo(X(x),0);ctx.lineTo(X(x),H);ctx.stroke()}for(let y=-10;y<=12;y+=2){ctx.beginPath();ctx.moveTo(0,Y(y));ctx.lineTo(W,Y(y));ctx.stroke()}ctx.strokeStyle='#aeb8d6';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(0),0);ctx.lineTo(X(0),H);ctx.moveTo(0,Y(0));ctx.lineTo(W,Y(0));ctx.stroke();ctx.strokeStyle='#5ce1ef';ctx.lineWidth=4;ctx.beginPath();for(let px=0;px<=W;px++){let x=xmin+px/W*(xmax-xmin),y=a*x*x+b*x+c,py=Y(y);if(px===0)ctx.moveTo(px,py);else ctx.lineTo(px,py)}ctx.stroke();ctx.fillStyle='#ffd77a';ctx.beginPath();ctx.arc(X(xp),Y(yp),6,0,Math.PI*2);ctx.fill();ctx.fillStyle='#aeb8d6';ctx.font='14px sans-serif';ctx.fillText('y',10,18);ctx.fillText('x',W-18,Y(0)-8)}
+function resetGraph(){document.getElementById('a').value=1;document.getElementById('b').value=-4;document.getElementById('c').value=3;draw()}
+['a','b','c'].forEach(id=>document.getElementById(id).addEventListener('input',draw));
+const finalQs=[["Berapa ketinggian awal bola?",["0 meter","6 meter","7 meter","16 meter"],2,"Saat t=0, h(0)=7 meter."],["Pada detik ke berapa bola mencapai ketinggian maksimum?",["2 detik","3 detik","6 detik","7 detik"],1,"Waktu di titik puncak adalah t=−b/(2a)=−6/(−2)=3 detik."],["Berapa ketinggian maksimum bola?",["7 meter","9 meter","12 meter","16 meter"],3,"h(3)=−9+18+7=16 meter."],["Kapan bola mencapai tanah setelah dilempar?",["1 detik","3 detik","6 detik","7 detik"],3,"h(t)=0 menghasilkan t=−1 dan t=7. Waktu yang relevan adalah 7 detik."]];
+function renderFinal(){finalIndex=0;finalScore=0;document.getElementById('result').classList.add('hidden');showFinalQ()}
+function showFinalQ(){let q=finalQs[finalIndex];document.getElementById('fq').textContent='Tantangan '+(finalIndex+1)+'/4 — '+q[0];document.getElementById('fopts').innerHTML=q[1].map((o,j)=>`<button class="option" onclick="finalChoose(${j})">${String.fromCharCode(65+j)}. ${o}</button>`).join('');document.getElementById('ffb').className='feedback hidden';document.getElementById('fnext').classList.add('hidden')}
+function finalChoose(j){let q=finalQs[finalIndex],ok=j===q[2];if(ok)finalScore+=25;let opts=[...document.querySelectorAll('#fopts .option')];opts.forEach((b,i)=>{b.disabled=true;if(i===q[2])b.classList.add('good');else if(i===j)b.classList.add('bad')});let fb=document.getElementById('ffb');fb.className='feedback '+(ok?'good':'bad');fb.innerHTML=(ok?'<strong>Benar!</strong>':'<strong>Belum tepat.</strong>')+'<br>'+q[3];document.getElementById('fnext').classList.remove('hidden');document.getElementById('fnext').textContent=finalIndex===3?'Lihat hasil →':'Berikutnya →'}
+function finalNext(){if(finalIndex<3){finalIndex++;showFinalQ()}else{state.finalDone=true;save();document.getElementById('fq').textContent='Evaluasi selesai';document.getElementById('fopts').innerHTML='';document.getElementById('ffb').classList.add('hidden');document.getElementById('fnext').classList.add('hidden');let r=document.getElementById('result');r.classList.remove('hidden');r.innerHTML='<h3>🎉 Petualangan selesai!</h3><p>Skor evaluasi akhir: <b>'+finalScore+'/100</b></p><p>Total skor permainan: <b>'+state.score+'</b></p><p class="muted">Gunakan hasil ini sebagai umpan balik belajar. Skor permainan bukan pengganti penilaian akademik guru.</p>';document.getElementById('certificateAction').classList.remove('hidden')}}
+document.getElementById('rooms').innerHTML='';renderDashboard();
+document.getElementById('studentName').addEventListener('input',e=>{document.getElementById('certName').textContent=e.target.value.trim()||'Nama Peserta';document.getElementById('certScore').textContent='Skor permainan: '+state.score;});
+</script></body></html>
